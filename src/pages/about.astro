@@ -1,0 +1,241 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="About" description="About ITC Environmental and founder Zach Heiden — environmental testing and certification based in Indianapolis, IN.">
+  <Nav />
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Who We Are</p>
+      <h1>About ITC Environmental</h1>
+    </div>
+  </section>
+
+  <section class="about-main">
+    <div class="container about-grid">
+      <div class="about-photo">
+        <div class="about-img-wrap">
+          <img src="/images/actionshots/cleanroom-hepa-ceiling-scan.jpg" alt="ITC Environmental technician performing cleanroom HEPA ceiling scan" />
+        </div>
+        <div class="about-card">
+          <p class="card-label">Founder &amp; Owner</p>
+          <p class="card-name">Zach Heiden</p>
+          <p class="card-detail">Indianapolis, IN</p>
+          <a href="mailto:zheiden@itc-environmental.com" class="card-email">zheiden@itc-environmental.com</a>
+        </div>
+      </div>
+
+      <div class="about-copy">
+        <h2>Built for Critical Environments. Focused on Getting It Right.</h2>
+        <p>ITC Environmental provides testing and certification services for the facilities where compliance isn't optional — hospital pharmacies, compounding pharmacies, research laboratories, and pharmaceutical production environments. Every service is performed to applicable regulatory standards, with documentation that holds up to inspection.</p>
+        <p>Based in Indianapolis, ITC serves facilities across the country with a focus on markets where large national firms tend to underdeliver. Our approach is straightforward: assess what your facility needs, perform the work to standard, and provide complete documentation on the way out.</p>
+        <p>Zach Heiden founded ITC Environmental in 2024 after more than a decade working in environmental testing and certification. That background drives how ITC operates — methodical, technically sound, and focused on the details that regulators and accreditation bodies actually look for.</p>
+
+        <div class="values-list">
+          <div class="value-item">
+            <h3>Direct Communication</h3>
+            <p>No ticketing systems or account managers. You work with the same contact from quote to completion.</p>
+          </div>
+          <div class="value-item">
+            <h3>High Repeat Rate</h3>
+            <p>A significant share of ITC's clients return for annual and semi-annual recertification. That's the benchmark that matters.</p>
+          </div>
+          <div class="value-item">
+            <h3>Emergency Response</h3>
+            <p>When a critical environment goes down, ITC can mobilize quickly. Compliance timelines don't follow business hours.</p>
+          </div>
+        </div>
+
+        <a href="/contact" class="btn btn-primary">Get in Touch →</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    background:
+      linear-gradient(135deg, rgba(31,53,96,0.82) 0%, rgba(31,53,96,0.65) 100%),
+      url('/images/actionshots/bsc-hepa-probe-scan.jpg') 60% 30%/cover no-repeat;
+    color: #fff;
+    padding: 5rem 0 4rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+  }
+
+  .about-main {
+    padding: 5rem 0;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-photo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: sticky;
+    top: 100px;
+  }
+
+  .about-img-wrap {
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .about-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+
+  .about-card {
+    background: var(--off-white);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .card-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+  }
+
+  .card-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .card-detail {
+    font-size: 0.875rem;
+    color: var(--slate);
+  }
+
+  .card-email {
+    font-size: 0.875rem;
+    color: var(--teal);
+    margin-top: 0.25rem;
+  }
+
+  .card-email:hover {
+    text-decoration: underline;
+  }
+
+  .about-copy h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+    line-height: 1.25;
+  }
+
+  .about-copy p {
+    color: var(--slate);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+  }
+
+  .values-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+    border-top: 1px solid var(--border);
+    padding-top: 2.5rem;
+  }
+
+  .value-item h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.375rem;
+  }
+
+  .value-item p {
+    margin-bottom: 0;
+    font-size: 0.9375rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+
+  .btn-primary {
+    background: var(--teal);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: var(--teal-light);
+  }
+
+  @media (max-width: 900px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-photo {
+      position: static;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .about-img-wrap {
+      width: 160px;
+      flex-shrink: 0;
+    }
+
+
+    .about-card {
+      flex: 1;
+      min-width: 200px;
+    }
+  }
+</style>

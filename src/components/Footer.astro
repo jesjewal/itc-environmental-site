@@ -1,0 +1,124 @@
+---
+---
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/ITC%20Logo/ITC%20Logo_Vertical.png" alt="ITC Environmental" height="60" />
+      <p>Environmental testing and certification for critical controlled environments.</p>
+    </div>
+
+    <div class="footer-nav">
+      <strong>Services</strong>
+      <a href="/services#bsc">BSC Certification</a>
+      <a href="/services#laminar-flow">Laminar Flow Hood</a>
+      <a href="/services#isolator">Isolator CAI/CACI</a>
+      <a href="/services#cleanroom">Cleanroom Certification</a>
+      <a href="/services#fume-hood">Fume Hood Testing</a>
+      <a href="/services#hepa">HEPA Filter Testing</a>
+      <a href="/services#micro">Microbiological Testing</a>
+      <a href="/services#docs">Certification Docs</a>
+    </div>
+
+    <div class="footer-nav">
+      <strong>Company</strong>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/contact">Get a Quote</a>
+    </div>
+
+    <div class="footer-contact">
+      <strong>Get in Touch</strong>
+      <a href="tel:+13179462683">(317) 946-2683</a>
+      <a href="mailto:zheiden@itc-environmental.com">zheiden@itc-environmental.com</a>
+      <p>Based in Indianapolis, IN<br />Serving facilities nationwide</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {new Date().getFullYear()} ITC Environmental. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.75);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 3rem;
+  }
+
+  .footer-brand p {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    max-width: 260px;
+  }
+
+  .footer-brand img {
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+  }
+
+  .footer-nav,
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .footer-nav strong,
+  .footer-contact strong {
+    color: #fff;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-nav a,
+  .footer-contact a {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.65);
+    transition: color 0.2s;
+  }
+
+  .footer-nav a:hover,
+  .footer-contact a:hover {
+    color: #fff;
+  }
+
+  .footer-contact p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-top: 0.25rem;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    text-align: center;
+    padding: 1.25rem 2rem;
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  @media (max-width: 900px) {
+    .footer-inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

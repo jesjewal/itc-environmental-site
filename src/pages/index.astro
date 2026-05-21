@@ -1,17 +1,865 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 
+const services = [
+  { id: 'bsc', label: 'BSC Certification', image: '/images/services/bsc-large.jpeg' },
+  { id: 'laminar-flow', label: 'Laminar Flow Hoods', image: '/images/services/laminar-flow-large.jpeg' },
+  { id: 'isolator', label: 'Isolator CAI/CACI', image: '/images/services/isolator-large.jpeg' },
+  { id: 'cleanroom', label: 'Cleanroom Certification', image: '/images/services/cleanroom-large.jpeg' },
+  { id: 'fume-hood', label: 'Fume Hood Testing', image: '/images/services/fume-hood-large.jpeg' },
+  { id: 'hepa', label: 'HEPA Filter Integrity', image: '/images/services/hepa-large.jpeg' },
+  { id: 'micro', label: 'Microbiological Testing', image: '/images/services/petri-dish-large.jpeg' },
+  { id: 'docs', label: 'Certification Documentation', image: '/images/services/certification-docs-large.jpeg' },
+];
+
+const valueProps = [
+  {
+    heading: 'Personalized Focus',
+    body: 'Every job is unique, and so is our approach. We take time to understand your needs and provide a customized quote that fits your workflow, budget, and timeline.',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
+  },
+  {
+    heading: 'Flexible Scheduling',
+    body: 'We work around your facility\'s schedule — not the other way around. Whether planned recertification or urgent compliance needs, we accommodate.',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><circle cx="12" cy="16" r="2"/><path d="M12 14v-2"/></svg>`,
+  },
+  {
+    heading: 'Emergency Response',
+    body: 'Critical environments can\'t wait. ITC offers emergency response for time-sensitive certification and testing needs.',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <Nav />
+
+  <!-- Hero -->
+  <section class="hero">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="/images/hero-video.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Environmental Testing &amp; Certification</p>
+      <h1>Certified.<br />Accountable.<br />Done Right.</h1>
+      <p class="hero-sub">ITC Environmental provides testing and certification services for critical controlled environments — labs, hospital pharmacies, compounding pharmacies, and pharmaceutical production facilities.</p>
+      <div class="hero-actions">
+        <a href="/contact" class="btn btn-primary">Request a Quote</a>
+        <a href="/services" class="btn btn-ghost">See Services</a>
+      </div>
+      <p class="hero-reach">Serving facilities nationwide &nbsp;·&nbsp; Based in Indianapolis, IN</p>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat">
+        <span class="stat-num">15+</span>
+        <span class="stat-label">Years in the Field</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">8</span>
+        <span class="stat-label">Certified Services</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">NSF/ANSI 49</span>
+        <span class="stat-label">Certified Technician</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">Nationwide</span>
+        <span class="stat-label">Service Coverage</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Grid -->
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What We Certify</h2>
+        <p>Rigorous testing across every critical environment your facility operates.</p>
+      </div>
+      <div class="services-grid">
+        {services.map(s => (
+          <a href={`/services#${s.id}`} class="service-card">
+            <div class="service-card-img">
+              <img src={s.image} alt={s.label} loading="lazy" />
+            </div>
+            <div class="service-card-foot">
+              <span class="service-label">{s.label}</span>
+              <span class="service-arrow">→</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why ITC -->
+  <section class="section why-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why ITC Environmental</h2>
+        <p>Independent. Accountable. Built around the needs of critical environments.</p>
+      </div>
+      <div class="value-props">
+        {valueProps.map(vp => (
+          <div class="value-card">
+            <div class="value-icon-wrap" set:html={vp.svg} />
+            <h3>{vp.heading}</h3>
+            <p>{vp.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section process-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>Getting certified with ITC is straightforward. No account managers, no runaround.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-num">01</div>
+          <h3>Request a Quote</h3>
+          <p>Tell us your facility type and what you need. You'll hear directly from Zach — typically within one business day.</p>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step">
+          <div class="step-num">02</div>
+          <h3>Schedule Testing</h3>
+          <p>We work around your facility's schedule. Planned recertification or emergency response — we accommodate.</p>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step">
+          <div class="step-num">03</div>
+          <h3>On-Site Testing</h3>
+          <p>Zach performs all testing personally using calibrated equipment to applicable standards — NSF/ANSI 49, ISO 14644, USP 797/800.</p>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step">
+          <div class="step-num">04</div>
+          <h3>Compliance Documentation</h3>
+          <p>Receive audit-ready compliance reports formatted for regulators, accreditation bodies, and internal QA teams.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About ITC -->
+  <section class="zach-section">
+    <div class="container zach-inner">
+      <div class="zach-photo">
+        <img src="/images/actionshots/bsc-smoke-visualization.jpg" alt="ITC Environmental technician performing BSC smoke visualization test" />
+      </div>
+      <div class="zach-copy">
+        <blockquote>"No call centers. No account managers. Direct access to the people doing the work."</blockquote>
+        <p>ITC Environmental was founded to serve laboratories, hospital pharmacies, compounding pharmacies, and pharmaceutical production facilities that expect rigorous standards and direct communication. Every facility gets the same level of attention — whether it's a single BSC in a hospital pharmacy or a multi-suite compounding operation.</p>
+        <a href="/about" class="btn btn-outline">About ITC →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Clients Say</h2>
+        <p>Facilities that rely on ITC for recurring certification and compliance.</p>
+      </div>
+
+      <div class="carousel" id="testimonial-carousel">
+        <div class="carousel-track">
+          <div class="testimonial-card active">
+            <p class="testimonial-quote">Zach is thorough and easy to work with. We've used ITC for our annual BSC recertification for two years and the documentation has held up to every inspection without question.</p>
+            <div class="testimonial-attr">
+              <span class="testimonial-name">Director of Pharmacy</span>
+              <span class="testimonial-org">Regional Hospital System — Indianapolis, IN</span>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-quote">We needed emergency cleanroom recertification after a maintenance issue and ITC turned it around fast. Clear communication, solid report, no surprises.</p>
+            <div class="testimonial-attr">
+              <span class="testimonial-name">Compliance Manager</span>
+              <span class="testimonial-org">Compounding Pharmacy — Cincinnati, OH</span>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-quote">The certification documentation ITC provides is exactly what our QA team needs — formatted correctly, complete, and ready for the accreditation body without any back and forth.</p>
+            <div class="testimonial-attr">
+              <span class="testimonial-name">Quality Assurance Lead</span>
+              <span class="testimonial-org">Pharmaceutical Research Facility — Chicago, IL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-btn prev" aria-label="Previous testimonial">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="carousel-dots">
+            <button class="dot active" aria-label="Testimonial 1"></button>
+            <button class="dot" aria-label="Testimonial 2"></button>
+            <button class="dot" aria-label="Testimonial 3"></button>
+          </div>
+          <button class="carousel-btn next" aria-label="Next testimonial">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>Ready to schedule your certification?</h2>
+      <p>Quick, personalized service every step of the way.</p>
+      <a href="/contact" class="btn btn-primary btn-lg">Get a Quote</a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Stats Bar */
+  .stats-bar {
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .stats-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.75rem 3rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 0.375rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255,255,255,0.15);
+    flex-shrink: 0;
+  }
+
+  /* Process Section */
+  .process-section {
+    background: var(--off-white);
+  }
+
+  .process-steps {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .process-step {
+    flex: 1;
+    padding: 0 1.5rem;
+  }
+
+  .step-num {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--teal);
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: 1rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .process-step h3 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.625rem;
+  }
+
+  .process-step p {
+    font-size: 0.9375rem;
+    color: var(--slate);
+    line-height: 1.7;
+  }
+
+  .process-connector {
+    width: 48px;
+    height: 2px;
+    background: var(--border);
+    flex-shrink: 0;
+    margin-top: 1.25rem;
+  }
+
+  @media (max-width: 900px) {
+    .stats-inner { flex-wrap: wrap; }
+    .stat-divider { display: none; }
+    .stat { padding: 1.25rem 1.5rem; }
+    .process-steps { flex-direction: column; gap: 2rem; }
+    .process-connector { display: none; }
+    .process-step { padding: 0; }
+  }
+
+  .hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: #fff;
+  }
+
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(31,53,96,0.88) 0%, rgba(0,123,138,0.55) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 6rem 2rem;
+    max-width: 680px;
+    margin-left: 8vw;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-sub {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+    max-width: 520px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-reach {
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+
+  .btn-primary {
+    background: var(--teal);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: var(--teal-light);
+  }
+
+  .btn-ghost {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    border-color: rgba(255,255,255,0.4);
+  }
+
+  .btn-ghost:hover {
+    background: rgba(255,255,255,0.2);
+  }
+
+  .btn-outline {
+    border-color: var(--navy);
+    color: var(--navy);
+  }
+
+  .btn-outline:hover {
+    background: var(--navy);
+    color: #fff;
+  }
+
+  .btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 5rem 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-header p {
+    font-size: 1.0625rem;
+    color: var(--slate);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .services-section {
+    background: var(--off-white);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .service-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+  }
+
+  .service-card:hover {
+    border-color: var(--teal);
+    box-shadow: 0 4px 16px rgba(0,123,138,0.12);
+  }
+
+  .service-card-img {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--off-white);
+  }
+
+  .service-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover .service-card-img img {
+    transform: scale(1.04);
+  }
+
+  .service-card-foot {
+    padding: 0.875rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .service-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+
+  .service-arrow {
+    color: var(--teal);
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .value-props {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .value-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .value-icon-wrap {
+    width: 52px;
+    height: 52px;
+    background: rgba(0,123,138,0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--teal);
+    margin-bottom: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .value-icon-wrap svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .value-card h3 {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.625rem;
+  }
+
+  .value-card p {
+    font-size: 0.9375rem;
+    color: var(--slate);
+    line-height: 1.7;
+  }
+
+  .zach-section {
+    background: #fff;
+    padding: 5rem 0;
+  }
+
+  .zach-inner {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .zach-photo {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .zach-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+  }
+
+  .zach-copy blockquote {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 1.25rem;
+  }
+
+  .zach-copy p {
+    color: var(--slate);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 560px;
+  }
+
+  .testimonials-section {
+    background: var(--navy);
+    padding: 5rem 0;
+  }
+
+  .testimonials-section .section-header h2 {
+    color: #fff;
+  }
+
+  .testimonials-section .section-header p {
+    color: rgba(255,255,255,0.6);
+  }
+
+  .carousel {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .carousel-track {
+    position: relative;
+    min-height: 220px;
+  }
+
+  .testimonial-card {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.75rem 2.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+  }
+
+  .testimonial-card.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    position: relative;
+  }
+
+  .testimonial-quote {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.8;
+    font-style: italic;
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial-quote::before {
+    content: '\201C';
+    color: var(--teal-light);
+    font-size: 1.25em;
+    font-style: normal;
+    margin-right: 0.1em;
+    vertical-align: -0.05em;
+    opacity: 0.8;
+  }
+
+  .testimonial-attr {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .testimonial-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--teal-light);
+  }
+
+  .testimonial-org {
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    flex-shrink: 0;
+  }
+
+  .carousel-btn:hover {
+    background: rgba(255,255,255,0.16);
+    color: #fff;
+  }
+
+  .carousel-dots {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .dot.active {
+    background: var(--teal-light);
+    transform: scale(1.25);
+  }
+
+  .cta-band {
+    background: var(--navy);
+    color: #fff;
+    padding: 5rem 0;
+    text-align: center;
+  }
+
+  .cta-band h2 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-band p {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2rem;
+    font-size: 1.0625rem;
+  }
+
+  @media (max-width: 900px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .zach-inner { grid-template-columns: 1fr; }
+    .value-props { grid-template-columns: 1fr; gap: 1rem; }
+
+    .value-card {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      grid-template-rows: auto auto;
+      column-gap: 1rem;
+      align-items: start;
+    }
+
+    .value-icon-wrap {
+      grid-column: 1;
+      grid-row: 1;
+      margin-bottom: 0;
+      align-self: center;
+    }
+
+    .value-card h3 {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: center;
+      margin-bottom: 0.375rem;
+    }
+
+    .value-card p {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      margin-top: 0.5rem;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .hero-content { margin-left: 0; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .service-label { font-size: 0.8125rem; }
+    .service-card-foot { padding: 0.75rem 0.75rem; }
+    .testimonial-card { padding: 1.75rem 1.5rem; }
+  }
+</style>
+
+<script>
+  const cards = Array.from(document.querySelectorAll('.testimonial-card'));
+  const dots = Array.from(document.querySelectorAll('.dot'));
+  const prev = document.querySelector('.carousel-btn.prev');
+  const next = document.querySelector('.carousel-btn.next');
+  let current = 0;
+  let timer;
+
+  function show(index) {
+    cards[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (index + cards.length) % cards.length;
+    cards[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function startAuto() {
+    timer = setInterval(() => show(current + 1), 5000);
+  }
+
+  function resetAuto() {
+    clearInterval(timer);
+    startAuto();
+  }
+
+  prev?.addEventListener('click', () => { show(current - 1); resetAuto(); });
+  next?.addEventListener('click', () => { show(current + 1); resetAuto(); });
+  dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); resetAuto(); }));
+
+  const carousel = document.getElementById('testimonial-carousel');
+  carousel?.addEventListener('mouseenter', () => clearInterval(timer));
+  carousel?.addEventListener('mouseleave', startAuto);
+
+  startAuto();
+</script>

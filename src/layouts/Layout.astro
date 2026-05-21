@@ -1,0 +1,45 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'ITC Environmental',
+  description = 'Environmental testing and certification services for laboratories, hospital pharmacies, compounding pharmacies, and pharmaceutical production facilities.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title === 'ITC Environmental' ? title : `${title} | ITC Environmental`}</title>
+    <link rel="icon" type="image/webp" href="/images/ITC%20Logo_Vertical.webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root {
+        --navy: #1F3560;
+        --teal: #007B8A;
+        --teal-light: #009BAD;
+        --off-white: #F7F8FA;
+        --slate: #5A6575;
+        --dark: #1A1E27;
+        --border: #E2E5EA;
+        --font: 'Inter', sans-serif;
+      }
+      html { scroll-behavior: smooth; }
+      body { font-family: var(--font); color: var(--dark); background: #fff; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

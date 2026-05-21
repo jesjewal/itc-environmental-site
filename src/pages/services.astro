@@ -1,0 +1,357 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    id: 'bsc',
+    title: 'Biological Safety Cabinet (BSC) Certification',
+    standard: 'NSF/ANSI 49',
+    description: 'Comprehensive performance validation for biological safety cabinets including Class II Type A2, B1, and B2 units. ITC tests inflow and downflow velocity, HEPA filter integrity, and confirms proper function after installation, relocation, or maintenance.',
+    details: ['Inflow/downflow velocity profiling', 'HEPA filter integrity testing (PAO aerosol challenge)', 'Airflow smoke pattern visualization', 'Post-install and post-relocation validation', 'NSF/ANSI 49 compliance documentation'],
+    image: '/images/actionshots/bsc-hepa-probe-scan.jpg',
+    imageAlt: 'ITC technician scanning HEPA filter inside a biological safety cabinet',
+  },
+  {
+    id: 'laminar-flow',
+    title: 'Laminar Flow Hood Certification',
+    standard: 'ISO 14644-1',
+    description: 'Unidirectional airflow verification and filter integrity testing for horizontal and vertical laminar flow workstations. Ensures ISO-compliant contamination-free environments for sensitive processes.',
+    details: ['Airflow uniformity and velocity testing', 'HEPA/ULPA filter integrity (PAO challenge)', 'ISO Class 5 work zone verification', 'Contamination control validation'],
+    image: '/images/services/laminar-flow-large.jpeg',
+    imageAlt: 'Laminar flow clean bench in a laboratory',
+  },
+  {
+    id: 'isolator',
+    title: 'Isolator CAI/CACI Certification',
+    standard: 'USP 797 + USP 800',
+    description: 'Full performance testing for Compounding Aseptic Isolators and Compounding Aseptic Containment Isolators. Covers both hazardous and non-hazardous drug compounding environments per current USP chapter requirements.',
+    details: ['Pressure differential testing', 'Airflow performance verification', 'HEPA filter integrity testing', 'Containment performance validation', 'USP 797/800 compliance documentation'],
+    image: '/images/actionshots/bsc-particle-counter-test.jpg',
+    imageAlt: 'ITC technician using particle counter during isolator certification',
+  },
+  {
+    id: 'cleanroom',
+    title: 'Cleanroom Certification',
+    standard: 'ISO 14644-1 + GMP',
+    description: 'Complete ISO classification testing and GMP compliance verification for pharmaceutical, biotech, and research cleanrooms. From particle counts to airflow mapping to full certification reports.',
+    details: ['Particle count testing', 'Airflow and pressure differential measurement', 'HEPA filter integrity (IEST-RP-CC034)', 'ISO classification reporting', 'GMP compliance documentation'],
+    image: '/images/actionshots/cleanroom-hepa-ceiling-scan.jpg',
+    imageAlt: 'ITC technician on ladder scanning ceiling HEPA filters in a cleanroom',
+  },
+  {
+    id: 'fume-hood',
+    title: 'Fume Hood Testing',
+    standard: 'ANSI/ASHRAE 110 + OSHA',
+    description: 'Face velocity measurement and smoke visualization testing to confirm personnel protection from chemical exposure. Full ANSI/ASHRAE and OSHA compliance reporting included.',
+    details: ['Face velocity measurement', 'Smoke visualization / containment testing', 'ANSI/ASHRAE 110 compliance', 'OSHA personnel safety verification'],
+    image: '/images/services/fume-hood-large.jpeg',
+    imageAlt: 'Laboratory chemical fume hood with open sash',
+  },
+  {
+    id: 'hepa',
+    title: 'HEPA Filter Integrity Testing',
+    standard: 'IEST-RP-CC034 · ISO 14644-3 · NSF/ANSI 49',
+    description: 'PAO aerosol challenge testing to detect leaks and verify installed HEPA filter performance. Full filter face scanning at ≤0.01% penetration threshold per applicable standards. Required semi-annually under USP 797 for sterile compounding environments.',
+    details: ['PAO aerosol challenge method', 'Full filter face scan (2 in/sec)', '≤0.01% penetration acceptance criterion', 'Leak detection and pinhole identification', 'Pass/fail documentation with corrective action notes'],
+    image: '/images/actionshots/cleanroom-airflow-smoke-test.jpg',
+    imageAlt: 'ITC technician performing airflow smoke visualization test in a cleanroom',
+  },
+  {
+    id: 'micro',
+    title: 'Microbiological Testing Services',
+    standard: 'ISO-certified lab reporting',
+    description: 'Surface and air sampling with microbial identification and trending analysis. Results reported through an ISO-certified microbiology laboratory — suitable for USP 797/800 environmental monitoring programs.',
+    details: ['Surface sampling', 'Viable air sampling', 'Microbial identification', 'Trending analysis and reporting', 'ISO-certified lab results'],
+    image: '/images/services/petri-dish-large.jpeg',
+    imageAlt: 'Petri dishes with agar media on a laboratory surface',
+  },
+  {
+    id: 'docs',
+    title: 'Certification Documentation',
+    standard: 'USP 797/800 · ISO 14644-1 · FDA',
+    description: 'Comprehensive compliance reports prepared to meet regulatory requirements. Documentation is audit-ready and formatted for submission to inspectors, accreditation bodies, and internal QA teams.',
+    details: ['USP 797/800 compliance reports', 'ISO 14644-1 certification reports', 'Annex 1 (EU GMP) documentation', 'FDA-ready inspection reports'],
+    image: '/images/services/certification-docs-large.jpeg',
+    imageAlt: 'Gloved hand holding certification report on clipboard',
+  },
+];
+---
+
+<Layout title="Services" description="Environmental testing and certification services: BSC certification, cleanroom testing, HEPA filter integrity, microbiological testing, and more.">
+  <Nav />
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">What We Do</p>
+      <h1>Services</h1>
+      <p class="page-sub">ITC provides testing and certification across every critical controlled environment. Every service includes compliance documentation audit-ready for regulators and accreditation bodies.</p>
+    </div>
+  </section>
+
+  <!-- Sticky sub-nav -->
+  <nav class="service-subnav" aria-label="Jump to service">
+    <div class="subnav-inner">
+      {services.map(s => (
+        <a href={`#${s.id}`}>{s.title.split(' ')[0]} {s.title.split(' ')[1]}</a>
+      ))}
+    </div>
+  </nav>
+
+  <div class="services-page">
+    <div class="container">
+      {services.map((s, i) => (
+        <section id={s.id} class={`service-block ${i % 2 !== 0 ? 'alt' : ''}`}>
+          <div class="service-inner">
+            <div class="service-content">
+              <p class="service-standard">{s.standard}</p>
+              <h2>{s.title}</h2>
+              <p class="service-desc">{s.description}</p>
+              <ul class="service-details">
+                {s.details.map(d => <li>{d}</li>)}
+              </ul>
+              <a href="/contact" class="btn btn-outline">Request This Service →</a>
+            </div>
+            {s.image && (
+              <div class="service-image-wrap">
+                <img src={s.image} alt={s.imageAlt} class="service-image" loading="lazy" />
+              </div>
+            )}
+          </div>
+        </section>
+      ))}
+    </div>
+  </div>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Not sure which service you need?</h2>
+      <p>We'll help you figure out exactly what your facility requires.</p>
+      <a href="/contact" class="btn btn-primary btn-lg">Get in Touch</a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    background:
+      linear-gradient(135deg, rgba(31,53,96,0.82) 0%, rgba(31,53,96,0.65) 100%),
+      url('/images/actionshots/cleanroom-airflow-smoke-test.jpg') center 60%/cover no-repeat;
+    color: #fff;
+    padding: 5rem 0 4rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .page-sub {
+    color: rgba(255,255,255,0.75);
+    font-size: 1.0625rem;
+    max-width: 640px;
+    line-height: 1.7;
+  }
+
+  .service-subnav {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 72px;
+    z-index: 50;
+  }
+
+  .subnav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .subnav-inner::-webkit-scrollbar { display: none; }
+
+  .subnav-inner a {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--slate);
+    padding: 0.875rem 1rem;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .subnav-inner a:hover {
+    color: var(--navy);
+    border-bottom-color: var(--teal);
+  }
+
+  .services-page {
+    padding: 3rem 0;
+  }
+
+  .service-block {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .service-block:last-child {
+    border-bottom: none;
+  }
+
+  .service-block.alt {
+    background: var(--off-white);
+    margin: 0 -2rem;
+    padding: 4rem 2rem;
+  }
+
+  .service-inner {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .service-image-wrap {
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    flex-shrink: 0;
+  }
+
+  .service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 900px) {
+    .service-inner {
+      grid-template-columns: 1fr;
+    }
+    .service-image-wrap {
+      max-width: 100%;
+      aspect-ratio: 16/9;
+    }
+  }
+
+  .service-content {
+    max-width: 720px;
+  }
+
+  .service-standard {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--teal);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-content h2 {
+    font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1rem;
+  }
+
+  .service-desc {
+    color: var(--slate);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+  }
+
+  .service-details {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .service-details li {
+    font-size: 0.9375rem;
+    color: var(--dark);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .service-details li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-weight: 700;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+
+  .btn-outline {
+    border-color: var(--navy);
+    color: var(--navy);
+  }
+
+  .btn-outline:hover {
+    background: var(--navy);
+    color: #fff;
+  }
+
+  .btn-primary {
+    background: var(--teal);
+    color: #fff;
+    border-color: transparent;
+  }
+
+  .btn-primary:hover { background: var(--teal-light); }
+  .btn-lg { padding: 1rem 2rem; font-size: 1rem; }
+
+  .cta-band {
+    background: var(--navy);
+    color: #fff;
+    padding: 5rem 0;
+    text-align: center;
+  }
+
+  .cta-band h2 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-band p {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2rem;
+    font-size: 1.0625rem;
+  }
+</style>
