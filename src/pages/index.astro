@@ -343,6 +343,7 @@ const valueProps = [
     align-items: center;
     overflow: hidden;
     color: #fff;
+    background: url('/images/hero-poster.jpg') center/cover no-repeat;
   }
 
   .hero-video {
@@ -829,6 +830,13 @@ const valueProps = [
 </style>
 
 <script>
+  const heroVideo = document.querySelector('.hero-video');
+  if (heroVideo) {
+    heroVideo.play().catch(() => {
+      heroVideo.style.display = 'none';
+    });
+  }
+
   const cards = Array.from(document.querySelectorAll('.testimonial-card'));
   const dots = Array.from(document.querySelectorAll('.dot'));
   const prev = document.querySelector('.carousel-btn.prev');
