@@ -27,3 +27,6 @@ pnpm-debug.log*
 .agents/
 skills-lock.json
 reference/
+
+# Local Netlify folder
+.netlify
