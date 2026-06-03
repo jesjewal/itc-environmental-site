@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Privacy Policy" description="Privacy policy for ITC Environmental — how we handle information submitted through our contact form.">
+  <Nav />
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Legal</p>
+      <h1>Privacy Policy</h1>
+    </div>
+  </section>
+
+  <section class="privacy-content">
+    <div class="container">
+      <p class="updated">Last updated: June 2026</p>
+
+      <h2>Who We Are</h2>
+      <p>ITC Environmental (Integrity Testing and Certification) is an environmental testing and certification company based in Indianapolis, Indiana. Our website is <a href="https://itc-environmental.netlify.app">itc-environmental.netlify.app</a>.</p>
+
+      <h2>Information We Collect</h2>
+      <p>We collect information you voluntarily submit through our contact form, including your name, email address, facility type, and any message you provide. We do not collect any information automatically beyond standard server logs maintained by our hosting provider (Netlify).</p>
+
+      <h2>How We Use Your Information</h2>
+      <p>Information submitted through our contact form is used solely to respond to your inquiry and, if applicable, to provide a service quote. We do not sell, rent, or share your information with third parties for marketing purposes.</p>
+
+      <h2>Data Storage</h2>
+      <p>Contact form submissions are processed and stored by Netlify Forms. You can review Netlify's privacy practices at <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">netlify.com/privacy</a>.</p>
+
+      <h2>Cookies</h2>
+      <p>This website does not use tracking cookies or analytics scripts. No third-party advertising or behavioral tracking is active on this site.</p>
+
+      <h2>Your Rights</h2>
+      <p>You may request deletion of any personal information you submitted through our contact form by emailing <a href="mailto:zheiden@itc-environmental.com">zheiden@itc-environmental.com</a>. We will respond within 30 days.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy can be directed to:<br />
+      Zach Heiden — ITC Environmental<br />
+      <a href="mailto:zheiden@itc-environmental.com">zheiden@itc-environmental.com</a><br />
+      (317) 946-2683</p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, rgba(31,53,96,0.9) 0%, rgba(31,53,96,0.75) 100%),
+      url('/images/actionshots/bsc-hepa-probe-scan.jpg') center/cover no-repeat;
+    color: #fff;
+    padding: 5rem 0 4rem;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+  }
+
+  .privacy-content {
+    padding: 4rem 0 6rem;
+  }
+
+  .updated {
+    font-size: 0.875rem;
+    color: var(--slate);
+    margin-bottom: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 2rem 0 0.625rem;
+  }
+
+  p {
+    color: var(--slate);
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+    font-size: 0.9375rem;
+  }
+
+  a {
+    color: var(--teal);
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>

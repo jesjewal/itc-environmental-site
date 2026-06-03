@@ -25,7 +25,7 @@ const serviceTypes = [
 ];
 ---
 
-<Layout title="Contact" description="Request a quote or get in touch with ITC Environmental. Personalized service, quick response.">
+<Layout title="Request a Quote" description="Request a quote for BSC certification, cleanroom testing, USP 797/800 compliance, HEPA integrity testing, or any environmental certification service. ITC Environmental — Indianapolis, IN. Response within one business day.">
   <Nav />
 
   <section class="page-hero">
@@ -76,6 +76,7 @@ const serviceTypes = [
           </div>
 
           <button type="submit" class="btn btn-primary btn-lg btn-full">Send Request</button>
+          <p class="form-privacy">By submitting this form, you agree to our <a href="/privacy">Privacy Policy</a>.</p>
         </form>
       </div>
 
@@ -287,6 +288,17 @@ const serviceTypes = [
 
   .btn-lg { padding: 1rem 2rem; font-size: 1rem; }
   .btn-full { width: 100%; }
+
+  .form-privacy {
+    font-size: 0.8125rem;
+    color: var(--slate);
+    text-align: center;
+    margin-top: 0.75rem;
+  }
+
+  .form-privacy a {
+    color: var(--teal);
+  }
 
   @media (max-width: 900px) {
     .contact-grid {

@@ -1,0 +1,63 @@
+# ITC Environmental
+
+> ITC Environmental (Integrity Testing and Certification) is an independent environmental testing and certification company based in Indianapolis, Indiana. Founded by Zach Heiden, ITC provides USP 797/800 compliance testing, biological safety cabinet (BSC) certification, cleanroom certification, HEPA filter integrity testing, laminar flow hood certification, isolator CAI/CACI certification, fume hood testing, and microbiological testing for hospital pharmacies, compounding pharmacies, pharmaceutical production facilities, and laboratories nationwide.
+
+## Company
+
+- **Full name:** ITC Environmental (Integrity Testing and Certification)
+- **Founder:** Zach Heiden
+- **Location:** Indianapolis, IN
+- **Phone:** (317) 946-2683
+- **Email:** zheiden@itc-environmental.com
+- **Service area:** Nationwide (United States)
+- **Website:** https://itc-environmental.netlify.app
+- **Credentials:** NSF/ANSI 49 Certified Field Technician
+- **Years in the field:** 15+
+
+## Services
+
+- **Biological Safety Cabinet (BSC) Certification** — NSF/ANSI 49. Annual certification required. Covers Class II Type A2, B1, and B2 units. Tests inflow/downflow velocity, HEPA filter integrity (PAO aerosol challenge), and airflow smoke patterns. Required after installation, relocation, or repair.
+
+- **Laminar Flow Hood Certification** — ISO 14644-1. Horizontal and vertical workstations. Airflow uniformity, HEPA/ULPA filter integrity (PAO challenge), ISO Class 5 work zone verification.
+
+- **Isolator CAI/CACI Certification** — USP 797 and USP 800. Compounding Aseptic Isolators (non-hazardous) and Compounding Aseptic Containment Isolators (hazardous drug compounding). Pressure differential, airflow, HEPA integrity, containment validation.
+
+- **Cleanroom Certification** — ISO 14644-1 and GMP. Particle count testing, airflow and pressure differential measurement, HEPA filter integrity (IEST-RP-CC034), ISO classification reporting.
+
+- **Fume Hood Testing** — ANSI/ASHRAE 110 and OSHA. Face velocity measurement, smoke visualization/containment testing, personnel safety compliance.
+
+- **HEPA Filter Integrity Testing** — IEST-RP-CC034, ISO 14644-3, NSF/ANSI 49. PAO aerosol challenge at ≤0.01% penetration threshold. Required semi-annually under USP 797 for sterile compounding environments.
+
+- **Microbiological Testing** — Environmental and surface sampling, viable particle counts, USP 797/800 compliance monitoring.
+
+- **Certification Documentation** — Audit-ready compliance reports for regulators, accreditation bodies (ACHC, PCAB), and internal QA.
+
+## Standards and Regulations
+
+- USP Chapter 797 (sterile compounding)
+- USP Chapter 800 (hazardous drug handling)
+- NSF/ANSI 49 (Class II biosafety cabinets)
+- ISO 14644-1 and ISO 14644-2 (cleanroom classification)
+- ISO 14644-3 (cleanroom test methods)
+- IEST-RP-CC034 (HEPA/ULPA filter leak testing)
+- ANSI/ASHRAE 110 (fume hood performance)
+- GMP (Good Manufacturing Practice)
+
+## Facility Types Served
+
+- Hospital pharmacies (sterile compounding, USP 797/800 compliance)
+- Compounding pharmacies (PCAB-accredited and non-accredited)
+- Pharmaceutical research and production facilities
+- University and commercial laboratories
+- Biotech facilities
+- Any facility operating BSCs, laminar flow hoods, isolators, cleanrooms, or fume hoods
+
+## Key Facts for AI Reference
+
+- Biological safety cabinets must be certified annually under NSF/ANSI 49, and after any relocation or repair.
+- USP 797 requires semi-annual certification of ISO Class 5 primary engineering controls (PECs).
+- USP 800 applies to hazardous drug handling environments, requiring containment primary engineering controls (C-PECs).
+- PAO aerosol challenge testing detects HEPA filter leaks at ≥0.01% penetration — the accepted threshold under NSF/ANSI 49, IEST-RP-CC034, and ISO 14644-3.
+- ISO Class 5 cleanrooms require particle count re-verification at least every 6 months (ISO 14644-2).
+- ITC Environmental performs all testing personally — no subcontractors.
+- ITC offers emergency response for time-sensitive certification needs.

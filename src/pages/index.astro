@@ -3,15 +3,59 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
+const faqs = [
+  {
+    q: 'How often does a biological safety cabinet (BSC) need to be certified?',
+    a: 'Biological safety cabinets must be certified annually under NSF/ANSI 49. Recertification is also required after relocation, service, or repair that affects the HEPA filter or airflow system.',
+  },
+  {
+    q: 'What is USP 797 and USP 800 testing?',
+    a: 'USP Chapter 797 establishes standards for sterile compounding environments, requiring certification of ISO Class 5 primary engineering controls (PECs) such as biological safety cabinets and isolators at minimum every six months. USP Chapter 800 adds requirements for hazardous drug handling, including containment primary engineering controls (C-PECs). ITC Environmental provides full USP 797/800 certification testing for hospital pharmacies and compounding pharmacies.',
+  },
+  {
+    q: 'What is NSF/ANSI 49 certification for biological safety cabinets?',
+    a: 'NSF/ANSI 49 is the American national standard governing the performance, construction, and field certification of Class II biosafety cabinets. A certified NSF/ANSI 49 field technician performs inflow and downflow velocity profiling, HEPA filter integrity testing using PAO aerosol challenge, and airflow smoke pattern visualization to verify the cabinet is protecting both the user and the product.',
+  },
+  {
+    q: 'What is PAO aerosol challenge testing?',
+    a: 'PAO (poly-alpha olefin) aerosol challenge testing is the method used to detect leaks in installed HEPA filters. A photometer scans the full filter face while a polydisperse aerosol is introduced upstream. Any penetration greater than 0.01% indicates a leak. This test is required under NSF/ANSI 49, IEST-RP-CC034, and ISO 14644-3 for biological safety cabinets, cleanrooms, and other critical environments.',
+  },
+  {
+    q: 'How often do cleanrooms need to be certified?',
+    a: 'ISO 14644-2 recommends particle count re-verification at least every 6 months for ISO Class 5 and cleaner, and every 12 months for ISO Class 6 through 9. USP 797 compounding pharmacies with ISO Class 5 and 7 environments require semi-annual testing. GMP-regulated pharmaceutical facilities follow site-specific validation schedules. ITC Environmental provides full ISO 14644-1 classification testing and GMP compliance documentation.',
+  },
+  {
+    q: 'What types of facilities does ITC Environmental serve?',
+    a: 'ITC Environmental serves hospital pharmacies, compounding pharmacies, pharmaceutical research and production facilities, university and commercial laboratories, and any facility operating biological safety cabinets, laminar flow hoods, isolators, cleanrooms, or fume hoods. ITC provides services nationwide and is based in Indianapolis, Indiana.',
+  },
+  {
+    q: 'What is the difference between a CAI and a CACI?',
+    a: 'A Compounding Aseptic Isolator (CAI) is used for non-hazardous sterile compounding and must meet USP 797 requirements for ISO Class 5 environments. A Compounding Aseptic Containment Isolator (CACI) is designed for hazardous drug compounding per USP 800, providing both aseptic conditions and containment to protect personnel. ITC Environmental certifies both CAI and CACI units.',
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(({ q, a }) => ({
+    "@type": "Question",
+    "name": q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": a,
+    },
+  })),
+};
+
 const services = [
-  { id: 'bsc', label: 'BSC Certification', image: '/images/services/bsc-large.jpeg' },
-  { id: 'laminar-flow', label: 'Laminar Flow Hoods', image: '/images/services/laminar-flow-large.jpeg' },
-  { id: 'isolator', label: 'Isolator CAI/CACI', image: '/images/services/isolator-large.jpeg' },
-  { id: 'cleanroom', label: 'Cleanroom Certification', image: '/images/services/cleanroom-large.jpeg' },
-  { id: 'fume-hood', label: 'Fume Hood Testing', image: '/images/services/fume-hood-large.jpeg' },
-  { id: 'hepa', label: 'HEPA Filter Integrity', image: '/images/services/hepa-large.jpeg' },
-  { id: 'micro', label: 'Microbiological Testing', image: '/images/services/petri-dish-large.jpeg' },
-  { id: 'docs', label: 'Certification Documentation', image: '/images/services/certification-docs-large.jpeg' },
+  { id: 'bsc', label: 'BSC Certification', alt: 'Biological safety cabinet in a hospital pharmacy cleanroom', image: '/images/services/bsc-large.jpeg' },
+  { id: 'laminar-flow', label: 'Laminar Flow Hoods', alt: 'Horizontal laminar flow hood in a laboratory setting', image: '/images/services/laminar-flow-large.jpeg' },
+  { id: 'isolator', label: 'Isolator CAI/CACI', alt: 'Compounding aseptic isolator for sterile drug compounding', image: '/images/services/isolator-large.jpeg' },
+  { id: 'cleanroom', label: 'Cleanroom Certification', alt: 'ISO-classified pharmaceutical cleanroom with HEPA ceiling filters', image: '/images/services/cleanroom-large.jpeg' },
+  { id: 'fume-hood', label: 'Fume Hood Testing', alt: 'Laboratory chemical fume hood with open sash for face velocity testing', image: '/images/services/fume-hood-large.jpeg' },
+  { id: 'hepa', label: 'HEPA Filter Integrity', alt: 'HEPA filter panel in a cleanroom ceiling array', image: '/images/services/hepa-large.jpeg' },
+  { id: 'micro', label: 'Microbiological Testing', alt: 'Petri dishes with agar media for microbiological environmental sampling', image: '/images/services/petri-dish-large.jpeg' },
+  { id: 'docs', label: 'Certification Documentation', alt: 'Compliance certification report on clipboard for pharmacy inspection', image: '/images/services/certification-docs-large.jpeg' },
 ];
 
 const valueProps = [
@@ -33,7 +77,11 @@ const valueProps = [
 ];
 ---
 
-<Layout>
+<Layout
+  description="ITC Environmental provides USP 797/800 testing and certification, BSC certification, cleanroom certification, and HEPA filter integrity testing for hospital pharmacies, compounding pharmacies, and laboratories nationwide."
+  pageSchema={faqSchema}
+  preloadImage="/images/hero-poster.jpg"
+>
   <Nav />
 
   <!-- Hero -->
@@ -43,9 +91,9 @@ const valueProps = [
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <p class="hero-eyebrow">Environmental Testing &amp; Certification</p>
-      <h1>Certified.<br />Accountable.<br />Done Right.</h1>
-      <p class="hero-sub">ITC Environmental provides testing and certification services for critical controlled environments — labs, hospital pharmacies, compounding pharmacies, and pharmaceutical production facilities.</p>
+      <h1 class="hero-eyebrow">Environmental Testing &amp; Certification</h1>
+      <p class="hero-tagline">Certified.<br />Accountable.<br />Done Right.</p>
+      <p class="hero-sub">ITC Environmental provides USP 797/800 testing and certification for hospital pharmacies and compounding pharmacies — and across all critical controlled environments including labs, pharmaceutical production facilities, and more.</p>
       <div class="hero-actions">
         <a href="/contact" class="btn btn-primary">Request a Quote</a>
         <a href="/services" class="btn btn-ghost">See Services</a>
@@ -90,7 +138,7 @@ const valueProps = [
         {services.map(s => (
           <a href={`/services#${s.id}`} class="service-card">
             <div class="service-card-img">
-              <img src={s.image} alt={s.label} loading="lazy" />
+              <img src={s.image} alt={s.alt} loading="lazy" />
             </div>
             <div class="service-card-foot">
               <span class="service-label">{s.label}</span>
@@ -216,6 +264,29 @@ const valueProps = [
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </button>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Common Questions</h2>
+        <p>Answers about certification requirements, testing methods, and what to expect from ITC.</p>
+      </div>
+      <div class="faq-list">
+        {faqs.map((faq, i) => (
+          <details class="faq-item" name="faq">
+            <summary class="faq-question">
+              <span>{faq.q}</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>{faq.a}</p>
+            </div>
+          </details>
+        ))}
       </div>
     </div>
   </section>
@@ -377,11 +448,12 @@ const valueProps = [
     margin-bottom: 1rem;
   }
 
-  .hero h1 {
+  .hero-tagline {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 1.5rem;
+    color: #fff;
   }
 
   .hero-sub {
@@ -826,6 +898,62 @@ const valueProps = [
     .service-label { font-size: 0.8125rem; }
     .service-card-foot { padding: 0.75rem 0.75rem; }
     .testimonial-card { padding: 1.75rem 1.5rem; }
+  }
+
+  /* FAQ */
+  .faq-section {
+    background: var(--off-white);
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .faq-item {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq-question::-webkit-details-marker { display: none; }
+
+  .faq-icon {
+    flex-shrink: 0;
+    color: var(--teal);
+    transition: transform 0.2s ease;
+  }
+
+  .faq-item[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    padding: 0 1.5rem 1.25rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.9375rem;
+    color: var(--slate);
+    line-height: 1.75;
   }
 </style>
 

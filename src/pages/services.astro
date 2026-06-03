@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
+const siteUrl = 'https://itc-environmental.netlify.app';
+
 const services = [
   {
     id: 'bsc',
@@ -77,15 +79,45 @@ const services = [
     imageAlt: 'Gloved hand holding certification report on clipboard',
   },
 ];
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "ITC Environmental — Environmental Testing & Certification Services",
+  "description": "Complete environmental testing and certification services for hospital pharmacies, compounding pharmacies, laboratories, and pharmaceutical production facilities. Based in Indianapolis, IN. Serving facilities nationwide.",
+  "itemListElement": services.map((s, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "item": {
+      "@type": "Service",
+      "name": s.title,
+      "description": s.description,
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "ITC Environmental",
+        "url": siteUrl,
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States",
+      },
+      "url": `${siteUrl}/services#${s.id}`,
+    },
+  })),
+};
 ---
 
-<Layout title="Services" description="Environmental testing and certification services: BSC certification, cleanroom testing, HEPA filter integrity, microbiological testing, and more.">
+<Layout
+  title="Environmental Testing & Certification Services"
+  description="BSC certification (NSF/ANSI 49), cleanroom certification (ISO 14644), USP 797/800 testing, HEPA filter integrity, laminar flow hood, isolator CAI/CACI, fume hood, and microbiological testing. ITC Environmental — Indianapolis, IN. Serving facilities nationwide."
+  pageSchema={servicesSchema}
+>
   <Nav />
 
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">What We Do</p>
-      <h1>Services</h1>
+      <h1>Environmental Testing &amp; Certification Services</h1>
       <p class="page-sub">ITC provides testing and certification across every critical controlled environment. Every service includes compliance documentation audit-ready for regulators and accreditation bodies.</p>
     </div>
   </section>

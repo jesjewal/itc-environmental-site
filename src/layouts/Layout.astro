@@ -2,12 +2,54 @@
 interface Props {
   title?: string;
   description?: string;
+  pageSchema?: object;
+  preloadImage?: string;
 }
 
 const {
   title = 'ITC Environmental',
   description = 'Environmental testing and certification services for laboratories, hospital pharmacies, compounding pharmacies, and pharmaceutical production facilities.',
+  pageSchema,
+  preloadImage,
 } = Astro.props;
+
+const siteUrl = 'https://itc-environmental.netlify.app';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const pageTitle = title === 'ITC Environmental' ? title : `${title} | ITC Environmental`;
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "ITC Environmental",
+  "alternateName": "Integrity Testing and Certification",
+  "url": siteUrl,
+  "logo": `${siteUrl}/ITC%20Logo/ITC%20Logo_Horizontal.jpg`,
+  "description": "ITC Environmental provides USP 797/800 testing and certification, biological safety cabinet certification, cleanroom certification, HEPA filter integrity testing, and environmental compliance services for hospital pharmacies, compounding pharmacies, laboratories, and pharmaceutical production facilities.",
+  "telephone": "+13179462683",
+  "email": "zheiden@itc-environmental.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Indianapolis",
+    "addressRegion": "IN",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Zach Heiden"
+  },
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "certification",
+      "name": "NSF/ANSI 49 Certified Technician"
+    }
+  ],
+  "sameAs": []
+};
 ---
 
 <!doctype html>
@@ -16,14 +58,19 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <title>{title === 'ITC Environmental' ? title : `${title} | ITC Environmental`}</title>
-    <meta property="og:title" content={title === 'ITC Environmental' ? title : `${title} | ITC Environmental`} />
+    <title>{pageTitle}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://itc-environmental.netlify.app/ITC%20Logo/ITC%20Logo_Horizontal.jpg" />
+    <meta property="og:image" content={`${siteUrl}/ITC%20Logo/ITC%20Logo_Horizontal.jpg`} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://itc-environmental.netlify.app/ITC%20Logo/ITC%20Logo_Horizontal.jpg" />
+    <meta name="twitter:image" content={`${siteUrl}/ITC%20Logo/ITC%20Logo_Horizontal.jpg`} />
     <link rel="icon" type="image/webp" href="/images/ITC%20Logo_Vertical.webp" />
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} />}
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    {pageSchema && <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
